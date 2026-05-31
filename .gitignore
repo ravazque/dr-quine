@@ -10,5 +10,13 @@ C/bin/
 ASM/objects/
 ASM/bin/
 
+# Generated quine offspring (Grace / Sully — C & ASM)
+Grace_kid.c
+Grace_kid.s
+Sully_*.c
+Sully_*.s
+Sully_[0-9]
+
 # Quine verification temp files
+tmp
 tmp_*
