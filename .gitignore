@@ -1,1 +1,13 @@
+# Documentation
 docs/
+
+# C/ binaries & objects
+C/objects/
+C/bin/
+
+# ASM/ binaries & objects
+ASM/objects/
+ASM/bin/
+
+# Quine verification temp files
+tmp_*
