@@ -1,11 +1,13 @@
-// Grace writes its own source into Grace_kid.c
+/*
+    Grace writes its own source into Grace_kid.c
+*/
 
+#include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdio.h>
 
-#define str "// Grace writes its own source into Grace_kid.c%c%c#include <fcntl.h>%c#include <unistd.h>%c#include <stdio.h>%c%c#define str %c%s%c%c#define code int main(void){char s[4096];int fd = open(%cGrace_kid.c%c, O_WRONLY | O_CREAT | O_TRUNC, 0644);char *q = str;int n = sprintf(s, q, 10, 10, 10, 10, 10, 10, 34, q, 34, 10, 34, 34, 10, 10, 10, 10);write(fd, s, n);close(fd);}%c#define program code%c%cprogram%c"
-#define code int main(void){char s[4096];int fd = open("Grace_kid.c", O_WRONLY | O_CREAT | O_TRUNC, 0644);char *q = str;int n = sprintf(s, q, 10, 10, 10, 10, 10, 10, 34, q, 34, 10, 34, 34, 10, 10, 10, 10);write(fd, s, n);close(fd);}
-#define program code
+#define FILE_OUT "Grace_kid.c"
+#define NL "\n"
+#define FT(x) int main(void){char s[4096]; int fd = open(FILE_OUT, O_WRONLY | O_CREAT | O_TRUNC, 0644); if (fd < 0){return (1);} int n = sprintf(s, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", "/*", NL, "    Grace writes its own source into Grace_kid.c", NL, "*/", NL, NL, "#include <stdio.h>", NL, "#include <fcntl.h>", NL, "#include <unistd.h>", NL, NL, "#define FILE_OUT \"Grace_kid.c\"", NL, "#define NL \"\\n\"", NL, "#define FT(x) ", #x, NL); n += sprintf(s + n, "%s%s%s%s%s", NL, "FT(", #x, ")", NL); write(fd, s, n); close(fd); return (0);}
 
-program
+FT(int main(void){char s[4096]; int fd = open(FILE_OUT, O_WRONLY | O_CREAT | O_TRUNC, 0644); if (fd < 0){return (1);} int n = sprintf(s, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", "/*", NL, "    Grace writes its own source into Grace_kid.c", NL, "*/", NL, NL, "#include <stdio.h>", NL, "#include <fcntl.h>", NL, "#include <unistd.h>", NL, NL, "#define FILE_OUT \"Grace_kid.c\"", NL, "#define NL \"\\n\"", NL, "#define FT(x) ", #x, NL); n += sprintf(s + n, "%s%s%s%s%s", NL, "FT(", #x, ")", NL); write(fd, s, n); close(fd); return (0);})
