@@ -1,5 +1,6 @@
-# Documentation
+# Documentation & VScode
 docs/
+.vscode
 
 # C/ binaries & objects
 C/objects/
