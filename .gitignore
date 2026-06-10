@@ -1,13 +1,11 @@
-# Documentation & VScode
-docs/
-.vscode
-
-# C/ binaries & objects
+# Compiled objects
 C/objects/
-C/bin/
-
-# ASM/ binaries & objects
 ASM/objects/
+*.o
+*.d
+
+# Binaries
+C/bin/
 ASM/bin/
 
 # Generated quine offspring (Grace / Sully — C & ASM)
@@ -20,3 +18,13 @@ Sully_[-0-9]*
 # Quine verification temp files
 tmp
 tmp_*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
